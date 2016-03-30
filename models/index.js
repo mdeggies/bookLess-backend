@@ -9,8 +9,8 @@ if (!global.hasOwnProperty('db')) {
     sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_MAROON_URL, {
       dialect:  'postgres',
       protocol: 'postgres',
-      port:     match[4],
-      host:     match[3],
+      port:     5432,
+      host:     'ec2-54-225-112-119.compute-1.amazonaws.com',
       logging:  true //false
     })
   } else {
