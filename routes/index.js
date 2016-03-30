@@ -2,8 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
-var sequelize = require('../bin/db');
-var User = require('../models/user')(sequelize);
+var User = require('../models/user');//(sequelize);
 
 router.get('/', function(req, res, next) {
   console.log('in .get /', req.body);
@@ -25,7 +24,6 @@ router.post('/', function(req, res, next) {
    }).then(function(result) {
       var user = result[0], // the instance of the user
       created = result[1]; // boolean stating if it was created or not
-      console.log('created?:',created);
       if (created) {
         console.log('New user created'); //true
       }
