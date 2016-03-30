@@ -1,8 +1,11 @@
 'use strict';
 
+var models  = require('../models');
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');//(sequelize);
+
+console.log('User:',User);
 
 router.get('/', function(req, res, next) {
   console.log('in .get /', req.body);
@@ -12,8 +15,8 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   if (!req.body) return res.sendStatus(400);
   var fb_id = Object.keys(req.body)[0];
-  User.sync().then(function() {
-    User.findOrCreate({
+  models.User.sync().then(function() {
+    models.User.findOrCreate({
       where: {
         fb_id: fb_id,
       },
