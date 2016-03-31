@@ -1,14 +1,11 @@
 'use strict';
 
-var models  = require('../models');
+var models  = require('../../models/index');
 var express = require('express');
 var router = express.Router();
-var User = require('../models/user');//(sequelize);
-
-console.log('User:',User);
 
 router.get('/', function(req, res, next) {
-  console.log('in .get /', req.body);
+  console.log('in .get /');
   res.send('sent');
 })
 
@@ -52,6 +49,5 @@ router.get('/profile', function(req, res, next) {
   console.log('in .get /profile', req.body);
   res.render('profile');
 });
-
 
 module.exports = router;

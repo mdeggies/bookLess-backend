@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
   app.use(express.errorHandler());
 }*/
 
-app.use('/api', require('./routes/index'));
+app.use('/api', require('./routes/api/'));
 
 db.sequelize.sync().then(function() {
   http.createServer(app).listen(app.get('port'), function(){
