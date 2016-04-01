@@ -35,6 +35,19 @@ router.post('/', function(req, res, next) {
   });
 });
 
+router.post('/cards', function(req, res, next) {
+  if (!req.body) return res.sendStatus(400);
+  var categories = [];
+  var arr = Object.keys(req.body)[0];
+  console.log('arr:',arr);
+  /*console.log(arr.length);
+  for (var i=0; i<arr.length; i++) {
+    categories.push(arr[i].title);
+  }
+  console.log('categories:',categories);
+  res.send(categories);*/
+});
+
 router.get('/categories', function(req, res, next) {
   console.log('in .get /categories', req.body);
   res.render('categories');
